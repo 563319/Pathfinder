@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
+    public Animator anim;
     public Transform[] points;
     private NavMeshAgent nav;
     private int destPoint;
