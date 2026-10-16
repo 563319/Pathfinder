@@ -68,7 +68,7 @@ public class PatrolState : State
 
     public override void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Point"))
+        //if (collision.gameObject.CompareTag("Point"))
         {
 
             Debug.Log("collided with point via is trigger");
