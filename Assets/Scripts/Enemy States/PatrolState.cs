@@ -33,15 +33,23 @@ public class PatrolState : State
     public override void Update()
     {
         UIscript.ui.DrawText("\ndistance: " + distanceToPoint);
-        distanceToPoint = Vector3.Distance(enemy.transform.position, nav.destination);
+        distanceToPoint = nav.remainingDistance;// Vector3.Distance(enemy.transform.position, nav.destination);
+
+        Debug.Log("d=" + distanceToPoint);
+        Debug.Log("navPoint=" + nav.destination);
+
+        
+
         //do patrolling
         //sm.ChangeState(sm.patrolState);
         UIscript.ui.DrawText("*** This is the patrolling state ***\n");
         //move to attack
+        /*
         if (distanceToPoint <= attackRadius && enemyStillInRadius == false)
         {
             sm.ChangeState(sm.attackState);       
         }
+        */
 
 
         //to idle
@@ -60,7 +68,12 @@ public class PatrolState : State
 
     public override void OnTriggerEnter(Collider collision)
     {
-      
+        if (collision.gameObject.CompareTag("Point"))
+        {
+
+            Debug.Log("collided with point via is trigger");
+            sm.ChangeState(sm.attackState);
+        }
     }
 
     public override void FixedUpdate()

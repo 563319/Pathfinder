@@ -47,5 +47,10 @@ public abstract class State
         }
         nav.destination = enemy.points[enemy.destPoint].position;
         enemy.destPoint = (enemy.destPoint + 1) % enemy.points.Length;
+
+
+        //GameObject d = GameObject.FindWithTag("Test");
+       // d.transform.position = nav.destination;
+
     }
 }

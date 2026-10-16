@@ -44,10 +44,12 @@ public class IdleState : State
             sm.ChangeState(sm.patrolState);
         }
 
+        /*
         if (distanceToPoint <= attackRadius && enemyStillInRadius == false)
         {
             sm.ChangeState(sm.attackState);
         }
+        */
 
 
 
@@ -55,7 +57,12 @@ public class IdleState : State
 
     public override void OnTriggerEnter(Collider collision)
     {
+        if (collision.gameObject.CompareTag("Point"))
+        {
 
+
+            sm.ChangeState(sm.attackState);
+        }
     }
 
     public override void FixedUpdate()
