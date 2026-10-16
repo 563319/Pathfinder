@@ -33,7 +33,8 @@ public class AttackState : State
         distanceToPoint = Vector3.Distance(enemy.transform.position, nav.destination);
         attackTimer += Time.deltaTime;
         //do attacking
-        Debug.Log("distance" + distanceToPoint);
+        Debug.Log("distance: " + distanceToPoint);
+        UIscript.ui.DrawText("\ndistance: " + distanceToPoint);
         //attack animation
         anim.SetBool("isIdle", false);
         anim.SetBool("isAttacking", true);

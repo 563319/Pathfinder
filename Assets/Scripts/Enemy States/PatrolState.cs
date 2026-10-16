@@ -27,6 +27,7 @@ public class PatrolState : State
 
     public override void Update()
     {
+        UIscript.ui.DrawText("\ndistance: " + distanceToPoint);
         distanceToPoint = Vector3.Distance(enemy.transform.position, nav.destination);
         //do patrolling
         //sm.ChangeState(sm.patrolState);
