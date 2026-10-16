@@ -27,14 +27,23 @@ public class PatrolState : State
 
     public override void Update()
     {
+        distanceToPoint = Vector3.Distance(enemy.transform.position, nav.destination);
         //do patrolling
         //sm.ChangeState(sm.patrolState);
         UIscript.ui.DrawText("*** This is the patrolling state ***\n");
-        
+        //move to attack
+        if (distanceToPoint <= attackRadius && enemyStillInRadius == false)
+        {
+            sm.ChangeState(sm.attackState);       
+        }
+
+
+        //to idle
         if (nav.velocity.magnitude <= 0 )
         {
             sm.ChangeState(sm.idleState);
         }
+        //move to next point
         if (!nav.pathPending && nav.remainingDistance < 0.5f)
         {
             GoToNextPoint();

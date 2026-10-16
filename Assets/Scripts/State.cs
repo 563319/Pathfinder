@@ -13,6 +13,9 @@ public abstract class State
     //
     public Animator anim;
     public NavMeshAgent nav;
+    public float distanceToPoint;
+    public float attackRadius = 2;
+    public bool enemyStillInRadius = false;
 
     // base constructor
     public State(EnemyScript enemy, StateMachine sm)

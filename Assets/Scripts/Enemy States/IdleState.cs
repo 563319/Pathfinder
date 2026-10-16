@@ -27,6 +27,7 @@ public class IdleState : State
 
     public override void Update()
     {
+        distanceToPoint = Vector3.Distance(enemy.transform.position, nav.destination);
         //do idle
 
         //idle animation
@@ -41,8 +42,12 @@ public class IdleState : State
         {
             sm.ChangeState(sm.patrolState);
         }
-        
-        
+
+        if (distanceToPoint <= attackRadius && enemyStillInRadius == false)
+        {
+            sm.ChangeState(sm.attackState);
+        }
+
 
 
     }
