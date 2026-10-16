@@ -1313,6 +1313,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 781695408}
     m_Modifications:
+    - target: {fileID: 5666006970316019134, guid: c5a57667270466e4e83b6453897d69b0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6278891977733034842, guid: c5a57667270466e4e83b6453897d69b0, type: 3}
       propertyPath: m_Name
       value: Point (1)
