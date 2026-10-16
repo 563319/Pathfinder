@@ -16,6 +16,11 @@ public class PatrolState : State
     {
         base.Enter();
         Debug.Log("entering patrolling state");
+        //aniamtion setting
+        anim.SetBool("isIdle", false);
+        anim.SetBool("isAttacking", false);
+        anim.SetBool("isRunning", true);
+
     }
 
     public override void Exit()
@@ -49,11 +54,6 @@ public class PatrolState : State
         {
             GoToNextPoint();
         }
-        //aniamtion setting
-        anim.SetBool("isIdle", false);
-        anim.SetBool("isAttacking", false);
-        anim.SetBool("isRunning", true);
-
         //when point is in certain range switch to attack state
 
     }

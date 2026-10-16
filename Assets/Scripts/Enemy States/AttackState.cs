@@ -19,6 +19,10 @@ public class AttackState : State
         base.Enter();
         Debug.Log("entering attacking state");
         enemyStillInRadius = true;
+        //attack animation
+        anim.SetBool("isIdle", false);
+        anim.SetBool("isAttacking", true);
+        anim.SetBool("isRunning", false);
     }
 
     public override void Exit()
@@ -35,10 +39,7 @@ public class AttackState : State
         //do attacking
         Debug.Log("distance: " + distanceToPoint);
         UIscript.ui.DrawText("\ndistance: " + distanceToPoint);
-        //attack animation
-        anim.SetBool("isIdle", false);
-        anim.SetBool("isAttacking", true);
-        anim.SetBool("isRunning", false);
+
         Debug.Log("attack timer: " + attackTimer);
         //
         UIscript.ui.DrawText("*** This is the attacking state ***\n");
@@ -55,8 +56,8 @@ public class AttackState : State
         {
             Debug.Log("attack timer is >= 2.5");
             attackTimer = 0f;
-            sm.ChangeState(sm.patrolState);
             enemyStillInRadius = false;
+            sm.ChangeState(sm.patrolState);
         }
     }
 

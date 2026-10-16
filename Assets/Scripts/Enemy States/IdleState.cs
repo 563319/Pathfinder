@@ -16,6 +16,11 @@ public class IdleState : State
     {
         base.Enter();
         Debug.Log("entering idle state");
+        //idle animation
+        anim.SetBool("isIdle", true);
+        anim.SetBool("isAttacking", false);
+        anim.SetBool("isRunning", false);
+        //
     }
 
     public override void Exit()
@@ -30,11 +35,7 @@ public class IdleState : State
         distanceToPoint = Vector3.Distance(enemy.transform.position, nav.destination);
         //do idle
 
-        //idle animation
-        anim.SetBool("isIdle", true);
-        anim.SetBool("isAttacking", false);
-        anim.SetBool("isRunning", false);
-        //
+       
 
         UIscript.ui.DrawText("*** This is the idle state ***\n");
         
