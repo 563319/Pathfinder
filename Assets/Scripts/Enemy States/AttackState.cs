@@ -44,7 +44,7 @@ public class AttackState : State
         //
         UIscript.ui.DrawText("*** This is the attacking state ***\n");
 
-        Debug.Log($"enemy={enemy.transform.position}, destination={nav.destination}, " + $"distance={distanceToPoint}, attackRadius={attackRadius}");
+       
         if (distanceToPoint > attackRadius)
         {
             
