@@ -43,17 +43,20 @@ public class AttackState : State
         Debug.Log("attack timer: " + attackTimer);
         //
         UIscript.ui.DrawText("*** This is the attacking state ***\n");
+
+        Debug.Log($"enemy={enemy.transform.position}, destination={nav.destination}, " + $"distance={distanceToPoint}, attackRadius={attackRadius}");
         if (distanceToPoint > attackRadius)
         {
             
-
+            Debug.Log("changed to patrol by --distanceToPoint > attackRadius--");
             sm.ChangeState(sm.patrolState);
-
+                
             
             
         }
         if (attackTimer >= 2.5)
         {
+            Debug.Log("changed to patrol by --attack timer >= 2.5--");
             Debug.Log("attack timer is >= 2.5");
             attackTimer = 0f;
             enemyStillInRadius = false;

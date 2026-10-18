@@ -57,13 +57,15 @@ public class IdleState : State
 
     public override void OnTriggerEnter(Collider collision)
     {
+        Debug.Log("!!!isTrigger Called!!! from idle");
         if (collision.gameObject.CompareTag("Point"))
         {
 
-
+            Debug.Log("collided with point via is trigger");
             sm.ChangeState(sm.attackState);
         }
     }
+    
 
     public override void FixedUpdate()
     {

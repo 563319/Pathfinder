@@ -35,8 +35,8 @@ public class PatrolState : State
         UIscript.ui.DrawText("\ndistance: " + distanceToPoint);
         distanceToPoint = nav.remainingDistance;// Vector3.Distance(enemy.transform.position, nav.destination);
 
-        Debug.Log("d=" + distanceToPoint);
-        Debug.Log("navPoint=" + nav.destination);
+        //Debug.Log("d=" + distanceToPoint);
+        //Debug.Log("navPoint=" + nav.destination);
 
         
 
@@ -55,7 +55,7 @@ public class PatrolState : State
         //to idle
         if (nav.velocity.magnitude <= 0 )
         {
-            sm.ChangeState(sm.idleState);
+           sm.ChangeState(sm.idleState);
         }
         //move to next point
         if (!nav.pathPending && nav.remainingDistance < 0.5f)
@@ -68,7 +68,8 @@ public class PatrolState : State
 
     public override void OnTriggerEnter(Collider collision)
     {
-        //if (collision.gameObject.CompareTag("Point"))
+        Debug.Log("!!!isTrigger Called!!! from patrol");
+        if (collision.gameObject.CompareTag("Point"))
         {
 
             Debug.Log("collided with point via is trigger");
